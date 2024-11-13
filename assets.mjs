@@ -33,7 +33,9 @@ for (const logoFileName of logoFileNames) {
       lossless: true,
     });
 
-    result.toFile(`${outputFolder}/${logoFileName}.${format}`);
+    result
+      .resize(1000, 1000)
+      .toFile(`${outputFolder}/${logoFileName}.${format}`);
 
     result
       .resize(2000, 2000)
