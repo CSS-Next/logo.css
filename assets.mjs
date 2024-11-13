@@ -1,3 +1,6 @@
+#!/usr/bin/env -S deno run -A
+// @ts-check
+
 import sharp from "npm:sharp@0.33.5";
 
 // Names of the SVGs to use for generation
