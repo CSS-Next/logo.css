@@ -25,7 +25,7 @@ for (const logoFileName of logoFileNames) {
 
   await Deno.mkdir(outputFolder);
 
-  const formats = ["png", "webp", "avif", "jpeg"];
+  const formats = ["png", "webp", "avif"];
 
   // Generate the different formats for the logo
   for (const format of formats) {
