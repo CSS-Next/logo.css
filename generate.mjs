@@ -9,13 +9,15 @@ import {
   MagickFormat,
 } from "https://deno.land/x/imagemagick_deno@0.0.31/mod.ts";
 
-const svg = await Deno.readTextFile("css.svg");
-const resvg = new Resvg(svg, { font: { loadSystemFonts: false } });
-const png = resvg.render()
-  .asPng();
-
-await Deno.writeFile("css.png", png);
-console.log(`Generated css.png`);
+const [png] = await Promise.all(
+  ["css.svg", "css.light.svg", "css.dark.svg"].map(async (path) => {
+    const png = await svg2png(path);
+    const out = path.replace(".svg", ".png");
+    await Deno.writeFile(out, png);
+    console.log(`Generated ${out}`);
+    return png;
+  }),
+);
 
 await initialize();
 
@@ -68,3 +70,13 @@ await ImageMagick.read(png, async (image) => {
   );
   console.log(`Generated ${filename}`);
 });
+
+/**
+ * @param {string} path
+ * @returns {Promise<Uint8Array>}
+ */
+async function svg2png(path) {
+  const svg = await Deno.readTextFile(path);
+  const resvg = new Resvg(svg, { font: { loadSystemFonts: false } });
+  return resvg.render().asPng();
+}
