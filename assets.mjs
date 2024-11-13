@@ -6,7 +6,7 @@ const logoFileNames = ["css", "css.square", "css.dark", "css.light"];
 // Start the generation process for each logo
 for (const logoFileName of logoFileNames) {
   // Extract the type of the logo, when the type is not provided it defaults to "primary"
-  const [_, logoType = "primary"] = logoFileName.split(".");
+  const [logoName, logoType = "primary"] = logoFileName.split(".");
 
   // Load the SVG file into sharp
   const image = await sharp(`${logoFileName}.svg`);
@@ -33,12 +33,10 @@ for (const logoFileName of logoFileNames) {
       lossless: true,
     });
 
-    result
-      .resize(1000, 1000)
-      .toFile(`${outputFolder}/${logoFileName}.${format}`);
+    result.resize(1000, 1000).toFile(`${outputFolder}/${logoName}.${format}`);
 
     if (format === "png") {
-      result.resize(32, 32).toFile(`${outputFolder}/${logoFileName}.ico`);
+      result.resize(32, 32).toFile(`${outputFolder}/${logoName}.ico`);
     }
   }
 }
