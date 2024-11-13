@@ -1,3 +1,4 @@
+#!/usr/bin/env -S deno run -A
 // @ts-check
 
 import { Resvg } from "npm:@resvg/resvg-js";
