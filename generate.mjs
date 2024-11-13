@@ -13,10 +13,12 @@ const resvg = new Resvg(svg, { font: { loadSystemFonts: false } });
 const png = resvg.render()
   .asPng();
 
+await Deno.writeFile("css.png", png);
+console.log(`Generated css.png`);
+
 await initialize();
 
 const formats = [
-  MagickFormat.Png,
   MagickFormat.Jpeg,
   MagickFormat.Jxl,
   MagickFormat.Avif,
