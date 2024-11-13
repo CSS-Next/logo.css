@@ -4,10 +4,10 @@
 import { Resvg } from "npm:@resvg/resvg-js";
 import {
   ImageMagick,
-  initialize,
+  initializeImageMagick,
   MagickColor,
   MagickFormat,
-} from "https://deno.land/x/imagemagick_deno@0.0.31/mod.ts";
+} from "npm:@imagemagick/magick-wasm@0.0.31";
 
 const [png] = await Promise.all(
   ["css.svg", "css.light.svg", "css.dark.svg"].map(async (path) => {
@@ -19,7 +19,11 @@ const [png] = await Promise.all(
   }),
 );
 
-await initialize();
+await initializeImageMagick(
+  new URL(
+    "https://cdn.jsdelivr.net/npm/@imagemagick/magick-wasm@0.0.31/dist/magick.wasm",
+  ),
+);
 
 await ImageMagick.read(png, async (image) => {
   // Alpha is not supported in JPEG
