@@ -37,10 +37,6 @@ for (const logoFileName of logoFileNames) {
       .resize(1000, 1000)
       .toFile(`${outputFolder}/${logoFileName}.${format}`);
 
-    result
-      .resize(2000, 2000)
-      .toFile(`${outputFolder}/${logoFileName}.2x.${format}`);
-
     if (format === "png") {
       result.resize(32, 32).toFile(`${outputFolder}/${logoFileName}.ico`);
     }
