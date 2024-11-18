@@ -1,0 +1,28 @@
+:root {
+  --bg: #e8e8e8;
+  --gap: 8em;
+  --items-gap: 2em;
+  --font-size: 16px;
+  --font-family: monospace;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--bg);
+  gap: var(--gap);
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--items-gap);
+}

@@ -1,0 +1,49 @@
+:root {
+  --color1: rebeccapurple;
+  --color2: white;
+  --color3: black;
+  --css-logo-bg: var(--color1);
+  --css-logo-fg: var(--color2);
+  --css-logo-size: 10rem;
+  --css-logo-radius: calc(var(--css-logo-size) / 10);
+  --css-logo-text-bottom: calc(var(--logo-size) / 100);
+  --css-logo-text-right: calc(var(--logo-size) / 100);
+  --css-logo-font-size: calc(var(--css-logo-size) / 8);
+  --css-logo-font-weight: bold;
+  --css-logo-label: 'CSS';
+}
+
+.css-logo {
+  position: relative;
+  display: block;
+  background-color: var(--css-logo-bg);
+  width: var(--css-logo-size);
+  height: var(--css-logo-size);
+  border-radius: var(--css-logo-radius);
+  border-top-left-radius: 0;
+}
+
+.css-logo::after {
+  position: absolute;
+  font-family: sans-serif;
+  bottom: 1em;
+  right: 1em;
+  content: var(--css-logo-label);
+  color: var(--css-logo-fg);
+  font-weight: var(--css-logo-font-weight);
+  font-size: var(--css-logo-font-size);
+}
+
+.css-logo.light {
+  --css-logo-bg: var(--color2);
+  --css-logo-fg: var(--color3);
+}
+
+.css-logo.dark {
+  --css-logo-bg: var(--color3);
+  --css-logo-fg: var(--color2);
+}
+
+.css-logo.square {
+  border-radius: 0;
+}
