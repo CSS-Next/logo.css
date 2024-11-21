@@ -44,7 +44,7 @@ for (const logoFileName of logoFileNames) {
       title.innerHTML = "CSS Logo Square";
       description.innerHTML =
         "A purple square with the letters CSS inside in white";
-      bg.setAttribute("d", "M0,0H1000V1000H-1000Z");
+      bg.setAttribute("d", "M0,0H1000V1000H0Z");
       break;
     }
   }
