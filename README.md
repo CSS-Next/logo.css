@@ -26,7 +26,7 @@ Together with the community the CSS-Next Community Group started [collecting ide
 
 ## Logo Usage Guidelines
 
-The logo is released under an MIT license so you use it as you want. Nevertheless, the CSS-Next Community Group decided to provide usage guidelines to make sure the logo is used in an accessible and recognizable manner.
+The logo is released under [Creative Commons Zero (CC0) Universal v1.0](https://github.com/CSS-Next/logo.css/blob/main/LICENSE) ([learn more here](https://creativecommons.org/public-domain/cc0/)). Nevertheless, the CSS-Next Community Group decided to provide usage guidelines to make sure the logo is used in an accessible and recognizable manner.
 
 ### Font
 
