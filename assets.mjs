@@ -87,9 +87,7 @@ for (const logoFileName of logoFileNames) {
   }
 
   // Generate the small SVG for the favicon
-  fg.setAttribute("transform", "scale(1.215) translate(-170 -300)");
-
-  const faviconSizes = [16, 32, 48];
+  fg.setAttribute("transform", "scale(1.25) translate(-192.5 -192.5)");
 
   const smallSVGPath = `${logoFileName}.small.svg`;
   await Deno.writeTextFile(
@@ -99,13 +97,7 @@ for (const logoFileName of logoFileNames) {
 
   // Use sharp to render the `.ico` from the small SVG
   const smallImage = await sharp(smallSVGPath);
-
-
-  for (const iconSize of faviconSizes) {
-    const iconFolder = `${outputFolder}/icon-${iconSize}`;
-    await Deno.mkdir(iconFolder);
-
-
-    smallImage.resize(iconSize, iconSize).toFile(`${iconFolder}/${logoName}.ico`);
-  }
+  await smallImage
+    .resize(32, 32)
+    .toFile(`${outputFolder}/${logoName}.ico`);
 }
