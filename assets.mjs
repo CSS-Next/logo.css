@@ -84,9 +84,20 @@ for (const logoFileName of logoFileNames) {
     });
 
     result.resize(1000, 1000).toFile(`${outputFolder}/${logoName}.${format}`);
-
-    if (format === "png") {
-      result.resize(32, 32).toFile(`${outputFolder}/${logoName}.ico`);
-    }
   }
+
+  // Generate the small SVG for the favicon
+  fg.setAttribute("transform", "scale(1.215) translate(-170 -300)");
+
+  const smallSVGPath = `${logoFileName}.small.svg`;
+  await Deno.writeTextFile(
+    smallSVGPath,
+    svg.toString().replace('<?xml version="1.0" encoding="utf-8"?>', "")
+  );
+
+  // Use sharp to render the `.ico` from the small SVG
+  const smallImage = await sharp(smallSVGPath);
+  await smallImage
+    .resize(32, 32)
+    .toFile(`${outputFolder}/${logoName}.ico`);
 }
