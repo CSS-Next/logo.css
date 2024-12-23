@@ -89,7 +89,7 @@ for (const logoFileName of logoFileNames) {
   // Generate the small SVG for the favicon
   svg.documentElement.setAttribute("width", "32");
   svg.documentElement.setAttribute("height", "32");
-  fg.setAttribute("transform", "scale(1.35) translate(-230 -230)");
+  fg.setAttribute("transform", "scale(1.3) translate(-200 -200)");
 
   const smallSVGPath = `${logoFileName}.small.svg`;
   await Deno.writeTextFile(
